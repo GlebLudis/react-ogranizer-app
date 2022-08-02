@@ -2,7 +2,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from '@mui/icons-material/Edit';
 import TodoListItemActionButton , {TodoListItemActionButtonProps} from "../ListButton";
 
-import "./TodoListItem.css";
+import "./styles.css";
 import {TodoItem} from "../../utils/types";
 
 interface TodoListItemProps {

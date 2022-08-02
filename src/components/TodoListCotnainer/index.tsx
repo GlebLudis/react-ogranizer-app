@@ -1,7 +1,7 @@
 import React from "react";
-import TodoListItem from "components/TodoListItem/TodoListItem";
-import { TodoItem } from "utils/types";
-import "./TodoList.css";
+import TodoListItem from "../ListItems/index";
+import { TodoItem } from "../../utils/types";
+import "./styles.css";
 
 interface TodoListProps {
   todoList: TodoItem[];
