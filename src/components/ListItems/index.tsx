@@ -4,32 +4,37 @@ import TodoListItemActionButton , {TodoListItemActionButtonProps} from "../ListB
 
 import "./styles.css";
 import {TodoItem} from "../../utils/types";
+import useTodo from "../../utils/hooks/useTodo";
 
 interface TodoListItemProps {
   todoItem: TodoItem;
-  onEdit: () => void;
-  onDelete: () => void;
-  onToggleCompletion: () => void;
 }
 
-function TodoListItem({
-  todoItem,
-  onEdit,
-  onDelete,
-  onToggleCompletion,
-}: TodoListItemProps) {
+function TodoListItem({ todoItem }: TodoListItemProps) {
+  const { dispatch } = useTodo();
+
+
   const todoListItemActions: TodoListItemActionButtonProps[] = [
     {
       title: "Edit Item",
       ariaLabel: `Edit Item "${todoItem.todo}"`,
       Icon: <EditIcon />,
-      onClick: onEdit,
+      onClick: () => dispatch({
+        type: 'edit',
+        payload: {
+          id: todoItem.id,
+          todo: prompt('Edit todo item', todoItem.todo) || todoItem.todo,
+        }
+      }),
     },
     {
       title: "Delete Item",
       ariaLabel: `Delete Item "${todoItem.todo}"`,
       Icon: <DeleteIcon />,
-      onClick: onDelete,
+      onClick: () => dispatch({
+        type: 'remove',
+        payload: todoItem.id,
+      }),
     },
   ];
 
@@ -40,6 +45,13 @@ function TodoListItem({
           type="checkbox"
           checked={todoItem.complete}
           id={`checkbox-${todoItem.id}`}
+          title={`Mark item "${todoItem.todo}" as ${todoItem.complete ? 'pending' : 'completed'}`}
+          onChange={() => {
+            dispatch({
+              type: 'toggleCompletion',
+              payload: todoItem.id,
+            })
+          }}
         />
 
         <label
