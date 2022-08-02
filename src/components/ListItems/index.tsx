@@ -1,10 +1,9 @@
-import React from "react";
-import { TodoItem } from "utils/types";
-import { EditIcon, TrashIcon } from "@iconicicons/react";
-import TodoListItemActionButton, {
-  TodoListItemActionButtonProps,
-} from "./TodoListItemActionButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from '@mui/icons-material/Edit';
+import TodoListItemActionButton , {TodoListItemActionButtonProps} from "../ListButton";
+
 import "./TodoListItem.css";
+import {TodoItem} from "../../utils/types";
 
 interface TodoListItemProps {
   todoItem: TodoItem;
@@ -29,7 +28,7 @@ function TodoListItem({
     {
       title: "Delete Item",
       ariaLabel: `Delete Item "${todoItem.todo}"`,
-      Icon: <TrashIcon />,
+      Icon: <DeleteIcon />,
       onClick: onDelete,
     },
   ];

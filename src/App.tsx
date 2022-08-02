@@ -1,9 +1,8 @@
 import React, { useReducer } from "react";
-import reducer from "./utils/reducer";
 import "./App.css";
 import Header from "./components/Header";
 import Container from "./components/Basic/Container";
-import TodoList from "./components/TodoListCotnainer";
+
 
 
 function App() {
@@ -14,6 +13,7 @@ function App() {
         <Header />
         <main>
           <Container>
+              {/*<TodoList todoList={todoItems}/>*/}
           </Container>
         </main>
       </div>
