@@ -2,8 +2,9 @@ import React, { useReducer } from "react";
 import reducer from "./utils/reducer";
 import "./App.css";
 import Header from "./components/Header";
-import TodoContainer from "./components/TodoContainer";
 import Container from "./components/Basic/Container";
+import TodoList from "./components/TodoListCotnainer";
+
 
 function App() {
 
@@ -13,7 +14,6 @@ function App() {
         <Header />
         <main>
           <Container>
-            <TodoContainer />
           </Container>
         </main>
       </div>
