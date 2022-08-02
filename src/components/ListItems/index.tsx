@@ -1,9 +1,11 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from '@mui/icons-material/Edit';
-import TodoListItemActionButton , {TodoListItemActionButtonProps} from "../ListButton";
+import EditIcon from "@mui/icons-material/Edit";
+import TodoListItemActionButton, {
+  TodoListItemActionButtonProps,
+} from "../ListButton";
 
 import "./styles.css";
-import {TodoItem} from "../../utils/types";
+import { TodoItem } from "../../utils/types";
 import useTodo from "../../utils/hooks/useTodo";
 
 interface TodoListItemProps {
@@ -13,30 +15,37 @@ interface TodoListItemProps {
 function TodoListItem({ todoItem }: TodoListItemProps) {
   const { dispatch } = useTodo();
 
-
   const todoListItemActions: TodoListItemActionButtonProps[] = [
     {
       title: "Edit Item",
       ariaLabel: `Edit Item "${todoItem.todo}"`,
       Icon: <EditIcon />,
-      onClick: () => dispatch({
-        type: 'edit',
-        payload: {
-          id: todoItem.id,
-          todo: prompt('Edit todo item', todoItem.todo) || todoItem.todo,
-        }
-      }),
+      onClick: () =>
+        dispatch({
+          type: "edit",
+          payload: {
+            id: todoItem.id,
+            todo: prompt("Edit todo item", todoItem.todo) || todoItem.todo,
+          },
+        }),
     },
     {
       title: "Delete Item",
       ariaLabel: `Delete Item "${todoItem.todo}"`,
       Icon: <DeleteIcon />,
-      onClick: () => dispatch({
-        type: 'remove',
-        payload: todoItem.id,
-      }),
+      onClick: () =>
+        dispatch({
+          type: "remove",
+          payload: todoItem.id,
+        }),
     },
   ];
+
+  const onToggleCompletion = () =>
+    dispatch({
+      type: "toggleCompletion",
+      payload: todoItem.id,
+    });
 
   return (
     <li className="todo-list-item-root" data-completed={todoItem.complete}>
@@ -45,13 +54,10 @@ function TodoListItem({ todoItem }: TodoListItemProps) {
           type="checkbox"
           checked={todoItem.complete}
           id={`checkbox-${todoItem.id}`}
-          title={`Mark item "${todoItem.todo}" as ${todoItem.complete ? 'pending' : 'completed'}`}
-          onChange={() => {
-            dispatch({
-              type: 'toggleCompletion',
-              payload: todoItem.id,
-            })
-          }}
+          title={`Mark item "${todoItem.todo}" as ${
+            todoItem.complete ? "pending" : "completed"
+          }`}
+          onChange={onToggleCompletion}
         />
 
         <label
