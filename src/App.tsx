@@ -1,19 +1,22 @@
+import React, { useReducer } from "react";
+import reducer from "./utils/reducer";
 import "./App.css";
 import Header from "./components/Header";
 import TodoContainer from "./components/TodoContainer";
 import Container from "./components/Basic/Container";
 
 function App() {
+
   return (
     <>
-        <div className="app">
-            <Header/>
-            <main>
-                <Container>
-                    <TodoContainer/>
-                </Container>
-            </main>
-        </div>
+      <div className="app">
+        <Header />
+        <main>
+          <Container>
+            <TodoContainer />
+          </Container>
+        </main>
+      </div>
     </>
   );
 }
