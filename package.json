@@ -1,0 +1,61 @@
+{
+  "name": "react-todo",
+  "private": true,
+  "homepage": "https://glebludis.github.io/react-todo",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "reg": "vite tsconfig-paths/register",
+    "test": "jest",
+    "lint": "prettier --check . && eslint . --ext .js,.ts && tsc --noEmit",
+    "lint:fix": "prettier --write . && eslint . --fix --ext .js,.ts",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/react": "^18.0.15",
+    "@types/react-calendar": "^3.5.1",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "@vitejs/plugin-react": "^2.0.0",
+    "babel-jest": "^28.1.3",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^4.0.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.3",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1",
+    "react-calendar": "^3.7.0",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0",
+    "vite-tsconfig-paths": "^3.5.0"
+  },
+  "lint-staged": {
+    ".{ts,tsx}": [
+      "npm run prettier:fix",
+      "npm run lint"
+    ]
+  }
+}
