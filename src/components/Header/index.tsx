@@ -12,7 +12,7 @@ function Header() {
         <header className="appbar-root">
             <Container className="appbar-container">
                 <h1 className="appbar-title">
-                    Organizer
+                    ORGANIZER
                 </h1>
             </Container>
         </header>
