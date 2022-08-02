@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --color-bg: #ffffff;
+    --color-fg: #121212;
+    --color-accent: #2279db;
+    --color-on-accent: #090909;
+    --color-error: #ef5350;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: 'Space Mono', 'Segoe UI', 'Ubuntu', 'Source Sans Pro', 'monospace';
+    box-sizing: border-box;
+}
+
+.app {
+    min-height: 100vh;
+}
